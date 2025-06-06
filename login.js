@@ -7,7 +7,7 @@ loginForm.addEventListener('submit', handleLoginSubmit);
 
 async function handleLoginSubmit(e) {
   e.preventDefault();
-  const id = document.getElementById('id').value;
+  const id = document.getElementById('id').value; //Name or email
   const password = document.getElementById('password').value;
 
   try {
@@ -30,6 +30,9 @@ async function login(id, password) {
   });
 
   if (!res.ok) throw new Error('Invalid credentials');
+
+  console.log('Login successful');
+  console.log('Response:', res.text);
 
   return res.text(); // Returns the token
 }
