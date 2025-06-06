@@ -1,4 +1,3 @@
-const loginBtn = document.getElementById("loginBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 const identifierInput = document.getElementById("identifier");
 const passwordInput = document.getElementById("password");
@@ -10,29 +9,6 @@ const xpGraph = document.getElementById("xp-graph");
 const auditGraph = document.getElementById("audit-graph");
 
 let jwt = null;
-
-loginBtn.addEventListener("click", async () => {
-  const id = identifierInput.value;
-  const pwd = passwordInput.value;
-  const token = btoa(`${id}:${pwd}`);
-
-  try {
-    const res = await fetch("https://learn.zone01kisumu.ke/api/auth/signin", {
-      method: "POST",
-      headers: { Authorization: `Basic ${token}` },
-    });
-
-    if (!res.ok) throw new Error("Login failed");
-
-    jwt = await res.text();
-    loginSection.style.display = "none";
-    profileSection.style.display = "block";
-
-    fetchUserProfile();
-  } catch (err) {
-    loginError.textContent = err.message;
-  }
-});
 
 logoutBtn.addEventListener("click", () => {
   jwt = null;
