@@ -1,7 +1,9 @@
 const API_SIGNIN = 'https://learn.zone01kisumu.ke/api/auth/signin';
 const TOKEN_KEY = 'zone01_token';
 
-document.getElementById('loginForm').addEventListener('submit', async (e) => {
+const loginForm = document.getElementById('loginForm');
+
+loginForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const id = document.getElementById('id').value;
   const password = document.getElementById('password').value;
