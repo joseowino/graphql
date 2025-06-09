@@ -3,9 +3,7 @@ const TOKEN_KEY = 'zone01_token';
 
 const loginForm = document.getElementById('loginForm');
 
-loginForm.addEventListener('submit', handleLoginSubmit);
-
-async function handleLoginSubmit(e) {
+export async function handleLoginSubmit(e) {
   e.preventDefault();
   const id = document.getElementById('id').value; //Name or email
   const password = document.getElementById('password').value;
@@ -14,9 +12,11 @@ async function handleLoginSubmit(e) {
     const token = await login(id, password);
     localStorage.setItem(TOKEN_KEY, token);
     window.location.href = 'index.html';
+    return id, password;
   } catch (err) {
     document.getElementById('error').textContent = err.message;
   }
+
 }
 
 async function login(id, password) {
