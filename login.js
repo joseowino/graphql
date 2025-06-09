@@ -12,7 +12,6 @@ export async function handleLoginSubmit(e) {
     const token = await login(id, password);
     localStorage.setItem(TOKEN_KEY, token);
     window.location.href = 'index.html';
-    return id, password;
   } catch (err) {
     document.getElementById('error').textContent = err.message;
   }
