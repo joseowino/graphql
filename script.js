@@ -1,5 +1,7 @@
 import {  handleLoginSubmit } from './login.js'
 
+const TOKEN_KEY = 'zone01_token';
+
 let loadedDoc = window.location.pathname.split('/').pop()
 
 if (loadedDoc === 'login.html') {
@@ -11,7 +13,7 @@ if (loadedDoc === 'login.html') {
 
 function getUserName() {
     let usee_name = document.getElementById('usee_name');
-    let token = localStorage.getItem('zone01_token');
+    let token = localStorage.getItem('TOKEN_KEY') || localStorage.getItem(TOKEN_KEY);
 
     if (token) {
         const payload = JSON.parse(atob(token.split('.')[1]));
