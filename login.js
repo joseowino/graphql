@@ -1,5 +1,5 @@
 const API_SIGNIN = 'https://learn.zone01kisumu.ke/api/auth/signin';
-const TOKEN_KEY = 'zone01_token';
+export const TOKEN_KEY = 'zone01_token';
 
 const loginForm = document.getElementById('loginForm');
 
@@ -15,7 +15,6 @@ export async function handleLoginSubmit(e) {
   } catch (err) {
     document.getElementById('error').textContent = err.message;
   }
-
 }
 
 async function login(id, password) {
