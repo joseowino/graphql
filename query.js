@@ -1,7 +1,6 @@
+const ENDPOINT = "https://api.example.com/graphql"; 
 
 export const getData = async () => {
-  showAlert("Loading...", "info");
-  const endpoint = "https://learn.zone01kisumu.ke/api/graphql-engine/v1/graphql";
 
   const query = `
   query {
@@ -93,7 +92,7 @@ export const getData = async () => {
 `;
 
   try {
-    let response = await fetch(endpoint, {
+    let response = await fetch(ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
