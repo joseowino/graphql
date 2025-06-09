@@ -1,6 +1,4 @@
-import {  handleLoginSubmit } from './login.js'
-
-const TOKEN_KEY = 'zone01_token';
+import {  handleLoginSubmit, TOKEN_KEY } from './login.js'
 
 let loadedDoc = window.location.pathname.split('/').pop()
 
@@ -22,4 +20,6 @@ function getUserName() {
         usee_name.textContent = 'Guest';
     }
 }
+
+
 
