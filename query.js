@@ -1,7 +1,7 @@
-const ENDPOINT = "https://api.example.com/graphql"; 
+const endpoint = "https://api.example.com/graphql"; 
+
 
 export const getData = async () => {
-
   const query = `
   query {
     event(where: { id: { _eq: 75 } }) {
@@ -92,7 +92,7 @@ export const getData = async () => {
 `;
 
   try {
-    let response = await fetch(ENDPOINT, {
+    let response = await fetch(endpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
