@@ -88,7 +88,7 @@ const query = `
   }
 `;
 
-export async function getData() {
+export async function schema() {
   try {
     let response = await fetch(endpoint, {
       method: "POST",
