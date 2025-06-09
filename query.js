@@ -88,8 +88,7 @@ const query = `
   }
 `;
 
-
-export const getData = async () => {
+export async function getData() {
   try {
     let response = await fetch(endpoint, {
       method: "POST",
@@ -103,11 +102,12 @@ export const getData = async () => {
     if (!response.ok) {
       throw new Error("Session expired. Please login again.");
     }
-    const data = await response.json();
-    profile(data);
+
+    return await response.json();
+
   } catch (error) {
-    login();
-    showAlert(`Error: ${error}`);
+    console.error("Error fetching data:", error);
+    alert(error.message || "An error occurred while fetching data.");
   }
 
 }
