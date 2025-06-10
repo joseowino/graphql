@@ -33,6 +33,7 @@ async function fetchUserProfile() {
     }
   `;
 
+
   const res = await fetch("https://learn.zone01kisumu.ke/api/graphql-engine/v1/graphql", {
     method: "POST",
     headers: {
