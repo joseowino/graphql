@@ -1,4 +1,5 @@
 import {  handleLoginSubmit, TOKEN_KEY } from './login.js'
+import { user } from './model.js';
 
 let loadedDoc = window.location.pathname.split('/').pop()
 
@@ -19,5 +20,8 @@ function getUserName() {
     } else {
         usee_name.textContent = 'Guest';
     }
+
+    console.log(user.id)
+    console.log(user.login)
 }
 
