@@ -1,4 +1,4 @@
-const endpoint = "https://api.example.com/graphql"; 
+const endpoint = "https://learn.zone01kisumu.ke/api/graphql-engine/v1/graphql";
 const query = `
   query {
     event(where: { id: { _eq: 75 } }) {
