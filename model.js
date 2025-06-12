@@ -18,39 +18,39 @@ const fetchData = async () => {
     }
 
     return {
-      id: data.user.id ?? null,
-      login: data.user.login ?? "Guest",
-      profile: data.user.profile ?? null,
-      campus: data.user.campus ?? null,
-      attrs: data.user.attrs ?? {},
-      results: data.user.results ?? [],
-      transactions: data.user.transactions ?? [],
-      xpHistory: data.user.xpHistory ?? [],
-      totalXP: data.user.totalXP ?? [],
-      upTransactions: data.user.upTransactions ?? [],
-      downTransactions: data.user.downTransactions ?? [],
-      xpTimeline: data.user.xpTimeline ?? [],
-      skillTypes: data.user.skillTypes?.nodes ?? [],
-      events: data.user.events ?? [],
+      id: result.data.user[0].id ?? null,
+      login: result.data.user[0].login ?? "Guest",
+      profile: result.data.user[0].profile ?? null,
+      campus: result.data.user[0].campus ?? null,
+      attrs: result.data.user[0].attrs ?? {},
+      results: result.data.user[0].results ?? [],
+      transactions: result.data.user[0].transactions ?? [],
+      xpHistory: result.data.user[0].xpHistory ?? [],
+      totalXP: result.data.user[0].totalXP ?? [],
+      upTransactions: result.data.user[0].upTransactions ?? [],
+      downTransactions: result.data.user[0].downTransactions ?? [],
+      xpTimeline: result.data.user[0].xpTimeline ?? [],
+      skillTypes: result.data.user[0].skillTypes?.nodes ?? [],
+      events: result.data.user[0].events ?? [],
     };
   } catch (error) {
     console.error("Error in fetchData:", error);
-    // return { 
-    //   id: null, 
-    //   login: "Guest",
-    //   profile: null,
-    //   campus: null,
-    //   attrs: {},
-    //   results: [],
-    //   transactions: [],
-    //   xpHistory: [],
-    //   totalXP: [],
-    //   upTransactions: [],
-    //   downTransactions: [],
-    //   xpTimeline: [],
-    //   skillTypes: [],
-    //   events: [],
-    // };
+    return { 
+      id: null, 
+      login: "Guest",
+      profile: null,
+      campus: null,
+      attrs: {},
+      results: [],
+      transactions: [],
+      xpHistory: [],
+      totalXP: [],
+      upTransactions: [],
+      downTransactions: [],
+      xpTimeline: [],
+      skillTypes: [],
+      events: [],
+    };
   }
 };
 
