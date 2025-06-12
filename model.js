@@ -3,7 +3,7 @@ import { schema } from "./query.js";
 const fetchData = async () => {
   try {
     const result = await schema();
-    console.log("Raw schema result:", result);
+    console.log("raw result:", result);
 
     const { data } = result || { data: {} };
 
@@ -16,8 +16,6 @@ const fetchData = async () => {
       console.error("No user data returned from schema query.");
       return { id: null, login: "Guest" };
     }
-
-    console.log("Fetched user data:", data.user);
 
     return {
       id: data.user.id ?? null,
