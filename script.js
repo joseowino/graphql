@@ -12,9 +12,7 @@ if (loadedDoc === 'login.html') {
   const token = localStorage.getItem(TOKEN_KEY);
   if (token && isAuthenticated()) {
     getUserName();
-    console.log("User is authenticated. Token found.");
   } else {
-    console.log("No authentication token found or token expired.");
     window.location.href = 'login.html';
   }
 }
@@ -29,8 +27,6 @@ function getUserName() {
     usee_name.innerText = 'Guest';
   }
 
-  console.log('User ID:', user.id);
-  console.log('User Login:', user.login);
 }
 
 export function isAuthenticated() {
