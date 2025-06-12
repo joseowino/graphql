@@ -3,9 +3,9 @@ import { schema } from "./query.js";
 const fetchData = async () => {
   try {
     const result = await schema();
-    console.log("raw result:", result);
 
     const { data } = result || { data: {} };
+    console.log("Result:", result.data.user[0].login);
 
     if (!data) {
       console.error("No data returned from schema query.");
@@ -35,22 +35,22 @@ const fetchData = async () => {
     };
   } catch (error) {
     console.error("Error in fetchData:", error);
-    return { 
-      id: null, 
-      login: "Guest",
-      profile: null,
-      campus: null,
-      attrs: {},
-      results: [],
-      transactions: [],
-      xpHistory: [],
-      totalXP: [],
-      upTransactions: [],
-      downTransactions: [],
-      xpTimeline: [],
-      skillTypes: [],
-      events: [],
-    };
+    // return { 
+    //   id: null, 
+    //   login: "Guest",
+    //   profile: null,
+    //   campus: null,
+    //   attrs: {},
+    //   results: [],
+    //   transactions: [],
+    //   xpHistory: [],
+    //   totalXP: [],
+    //   upTransactions: [],
+    //   downTransactions: [],
+    //   xpTimeline: [],
+    //   skillTypes: [],
+    //   events: [],
+    // };
   }
 };
 
