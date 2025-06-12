@@ -93,9 +93,6 @@ function getAuthToken() {
   // Clean the token - remove any whitespace, quotes, or extra characters
   token = token.trim().replace(/^["']|["']$/g, '');
   
-  console.log('Retrieved token length:', token.length);
-  console.log('Token preview:', token.substring(0, 50) + '...');
-
   // Basic JWT format validation
   const parts = token.split(".");
   if (parts.length !== 3) {
@@ -110,7 +107,7 @@ function getAuthToken() {
       const decoded = atob(parts[i].replace(/-/g, '+').replace(/_/g, '/'));
       JSON.parse(decoded);
     }
-    console.log('Token validation passed');
+
   } catch (validationError) {
     console.error('Token validation failed:', validationError);
     console.error('Problematic token part:', parts.find((part, index) => {
@@ -137,8 +134,6 @@ export async function schema() {
     if (!token) {
       throw new Error("Authentication token is missing. Please log in.");
     }
-
-    console.log('Making GraphQL request with token');
     
     const response = await fetch(endpoint, {
       method: "POST",
@@ -149,19 +144,17 @@ export async function schema() {
       body: JSON.stringify({ query }),
     });
 
-    console.log('Response status:', response.status);
-
     if (!response.ok) {
       if (response.status === 401) {
         // Clear invalid token
         localStorage.removeItem(TOKEN_KEY);
         throw new Error("Session expired. Please log in again.");
       }
+
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
 
     const result = await response.json();
-    console.log('GraphQL response:', result);
 
     if (result.errors && result.errors.length > 0) {
       console.error("GraphQL errors:", result.errors);
@@ -199,7 +192,6 @@ export async function schema() {
 const fetchData = async () => {
   try {
     const result = await schema();
-    console.log("Raw schema result:", result);
 
     const { data } = result || { data: {} };
 
@@ -212,8 +204,6 @@ const fetchData = async () => {
       console.error("No user data returned from schema query.");
       return { id: null, login: "Guest" };
     }
-
-    console.log("Fetched user data:", data.user);
 
     return {
       id: data.user.id ?? null,
