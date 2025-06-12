@@ -18,13 +18,13 @@ if (loadedDoc === 'login.html') {
 }
 
 function getUserName() {
-  const usee_name = document.getElementById('usee_name');
-  if (!usee_name) return;
+  const user_name = document.getElementById('usee_name');
+  if (!user_name) return;
 
   if (user && user.login && user.login !== 'Guest') {
-    usee_name.innerText = user.login;
+    user_name.innerText = user.login;
   } else {
-    usee_name.innerText = 'Guest';
+    user_name.innerText = 'Guest';
   }
 
 }
