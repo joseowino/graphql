@@ -2,14 +2,14 @@ import { isAuthenticated, TOKEN_KEY } from './login.js';
 import { getProfile } from './profile.js';
 
 const token = localStorage.getItem(TOKEN_KEY);
-if (token && isAuthenticated()) {
+if (token && isAuthenticated() && window.location.href === 'index.html') {
   getProfile();
-} else {
-  window.location.href = 'login.html';
-}
+} 
 
-
-export function logout() {
-  localStorage.removeItem(TOKEN_KEY);
-  window.location.href = 'login.html';
+const logout = document.getElementById('logoutBtn');
+if (logout) {
+  logout.addEventListener('click', () => {
+    window.location.href = 'login.html';
+    localStorage.removeItem(TOKEN_KEY);
+  });
 }
