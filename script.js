@@ -1,24 +1,11 @@
-import { handleLoginSubmit, TOKEN_KEY } from './login.js';
-import { user } from './model.js';
+import { TOKEN_KEY } from './login.js';
+import { getProfile } from './profile.js';
 
 const token = localStorage.getItem(TOKEN_KEY);
 if (token && isAuthenticated()) {
-  getUserName();
+  getProfile();
 } else {
   window.location.href = 'login.html';
-}
-
-
-function getUserName() {
-  const user_name = document.getElementById('usee_name');
-  if (!user_name) return;
-
-  if (user && user.login && user.login !== 'Guest') {
-    user_name.innerText = user.login;
-  } else {
-    user_name.innerText = 'Guest';
-  }
-
 }
 
 export function isAuthenticated() {
