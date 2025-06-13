@@ -128,6 +128,10 @@ function getAuthToken() {
 }
 
 export async function schema() {
+  if (window.location.href !== 'index.html') {
+    return;
+  }
+  
   try {
     const token = getAuthToken();
     
