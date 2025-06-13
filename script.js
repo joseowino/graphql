@@ -3,8 +3,11 @@ import { getProfile } from './profile.js';
 
 const token = localStorage.getItem(TOKEN_KEY);
 if (token && isAuthenticated()) {
-  console.log("Loading..........")
   getProfile();
+  const loading = document.getElementById('loading');
+  if (loading) {
+    loading.style.display = 'none';
+  }
 } 
 
 const logout = document.getElementById('logoutBtn');
