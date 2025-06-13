@@ -4,7 +4,7 @@ const login = document.getElementById('login');
 
 export function getProfile() {
     if (!user) {
-        console.error('User data is not available.');
+        console.error('Not able to fetch data.');
         return;
     }
 
@@ -15,6 +15,7 @@ export function getProfile() {
             login.innerText = 'Guest';
         }
     }
+
 
 }
 
