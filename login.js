@@ -2,6 +2,11 @@ const API_SIGNIN = 'https://learn.zone01kisumu.ke/api/auth/signin';
 
 export const TOKEN_KEY = 'zone01_token';
 
+const loginForm = document.getElementById('loginForm');
+if (loginForm) {
+  loginForm.addEventListener('submit', handleLoginSubmit);
+}
+
 export async function login(id, password) {
   try {
     const basicAuth = btoa(`${id}:${password}`);
