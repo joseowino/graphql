@@ -1,21 +1,13 @@
 import { handleLoginSubmit, TOKEN_KEY } from './login.js';
 import { user } from './model.js';
 
-const loadedDoc = window.location.pathname.split('/').pop();
-
-if (loadedDoc === 'login.html') {
-  const loginForm = document.getElementById('loginForm');
-  if (loginForm) {
-    loginForm.addEventListener('submit', handleLoginSubmit);
-  }
+const token = localStorage.getItem(TOKEN_KEY);
+if (token && isAuthenticated()) {
+  getUserName();
 } else {
-  const token = localStorage.getItem(TOKEN_KEY);
-  if (token && isAuthenticated()) {
-    getUserName();
-  } else {
-    window.location.href = 'login.html';
-  }
+  window.location.href = 'login.html';
 }
+
 
 function getUserName() {
   const user_name = document.getElementById('usee_name');
