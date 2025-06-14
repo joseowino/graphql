@@ -5,6 +5,7 @@ const welcome = document.getElementById('welcome');
 const name = document.getElementById('name');
 const email = document.getElementById('email');
 const phone = document.getElementById('phone');
+const country = document.getElementById('country');
 
 export function getProfile() {
     if (!user) {
@@ -44,6 +45,12 @@ export function getProfile() {
     if (phone) {
         if (user.attrs && user.attrs.phone) {
             phone.innerText = user.attrs.phone;
+        }
+    }
+
+    if (country) {
+        if (user.attrs && user.attrs.country) {
+            country.innerText = user.attrs.country;
         }
     }
 
