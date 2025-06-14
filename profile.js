@@ -6,6 +6,7 @@ const name = document.getElementById('name');
 const email = document.getElementById('email');
 const phone = document.getElementById('phone');
 const country = document.getElementById('country');
+const emagency = document.getElementById('emagency');
 
 export function getProfile() {
     if (!user) {
@@ -54,6 +55,11 @@ export function getProfile() {
         }
     }
 
+    if (emagency) {
+        if (user.attrs && user.attrs.emergencyTel) {
+            emagency.innerText = user.attrs.emergencyTel;
+        }
+    }
 
 }
 
