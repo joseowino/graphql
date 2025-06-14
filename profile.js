@@ -3,6 +3,7 @@ import { user } from './model.js';
 const header = document.getElementById('header'); 
 const welcome = document.getElementById('welcome');
 const name = document.getElementById('name');
+const email = document.getElementById('email');
 
 export function getProfile() {
     if (!user) {
@@ -31,6 +32,12 @@ export function getProfile() {
         if (user.lastName) {
             name.innerText += ` ${user.lastName}`;
         }
+    }
+
+    if (email) {
+        if (user.email) {
+            email.innerText = user.email;
+        } 
     }
 
 
