@@ -18,8 +18,8 @@ export function getProfile() {
     }
 
     if (welcome) {
-        if (user.attrs.firstName) {
-            welcome.innerText = `Welcome ${user.attrs.firstName}`;
+        if (user.firstName) {
+            welcome.innerText = `Welcome ${user.firstName}`;
         } 
     }
 
