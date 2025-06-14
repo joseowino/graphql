@@ -1,8 +1,8 @@
 import { user } from './model.js';
 
-const login = document.getElementById('login');
 const header = document.getElementById('header'); 
 const welcome = document.getElementById('welcome');
+const name = document.getElementById('name');
 
 export function getProfile() {
     if (!user) {
@@ -23,14 +23,32 @@ export function getProfile() {
         } 
     }
 
-    if (login) {
-        if (user.login && user.login !== 'Guest') {
-            login.innerText = user.login;
-        } else {
-            login.innerText = 'Guest';
+    if (name) {
+        if (user.firstName) {
+            name.innerText = user.firstName;
+        } 
+
+        if (user.lastName) {
+            name.innerText += ` ${user.lastName}`;
         }
     }
 
 
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
