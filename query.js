@@ -14,6 +14,9 @@ const query = `
       profile
       campus
       login
+      firstName
+      lastName
+      email
       attrs
       results(order_by: { grade: desc }, limit: 5) {
         object {
