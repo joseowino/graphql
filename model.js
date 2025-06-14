@@ -25,6 +25,9 @@ const fetchData = async () => {
     return {
       id: result.data.user[0].id ?? null,
       login: result.data.user[0].login ?? "Guest",
+      firstName: result.data.user[0].attrs?.firstName ?? "",
+      lastName: result.data.user[0].attrs?.lastName ?? "",
+      email: result.data.user[0].attrs?.email ?? "",
       profile: result.data.user[0].profile ?? null,
       campus: result.data.user[0].campus ?? null,
       attrs: result.data.user[0].attrs ?? {},
@@ -43,6 +46,9 @@ const fetchData = async () => {
     return { 
       id: null, 
       login: "Guest",
+      firstName: "",
+      lastName: "",
+      email: "",
       profile: null,
       campus: null,
       attrs: {},
