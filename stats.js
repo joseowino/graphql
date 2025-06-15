@@ -17,23 +17,16 @@ export function getStats(user) {
     const userLevel = user.level;
     setText(level, userLevel);
     
-
         // Role
     if (elements.role && user.level && user.events && Array.isArray(user.events.ranksDefinitions)) {
-        const level = user.level;
         const ranks = user.events.ranksDefinitions;
         const rank = ranks
-            .filter(r => r.level <= level)
+            .filter(r => r.level <= userLevel)
             .sort((a, b) => b.level - a.level)[0];
         setText(elements.role, rank ? rank.name : '');
-    }
 
-    // Next Rank
-    if (elements.nextRank && user.level && user.events && Array.isArray(user.events.ranksDefinitions)) {
-        const level = user.level;
-        const ranks = user.events.ranksDefinitions;
         const nextRank = ranks
-            .filter(r => r.level > level)
+            .filter(r => r.level > userLevel)
             .sort((a, b) => a.level - b.level)[0];
         setText(elements.nextRank, nextRank ? nextRank.name : '');
     }
