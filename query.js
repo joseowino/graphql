@@ -9,6 +9,7 @@ const query = `
         attrs
       }
     }
+      
     user {
       id
       profile
