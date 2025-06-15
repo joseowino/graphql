@@ -1,14 +1,22 @@
 import { user } from './model.js';
 
-const header = document.getElementById('header'); 
-const welcome = document.getElementById('welcome');
-const name = document.getElementById('name');
-const email = document.getElementById('email');
-const phone = document.getElementById('phone');
-const country = document.getElementById('country');
-const emagency = document.getElementById('emagency');
-const gender = document.getElementById('gender')
-const role = document.getElementById('role');
+const elements = {
+    header: document.getElementById('header'),
+    welcome: document.getElementById('welcome'),
+    name: document.getElementById('name'),
+    email: document.getElementById('email'),
+    phone: document.getElementById('phone'),
+    country: document.getElementById('country'),
+    emagency: document.getElementById('emagency'),
+    gender: document.getElementById('gender'),
+    role: document.getElementById('role'),
+};
+
+function setText(element, text) {
+    if (element && text) {
+        element.innerText = text;
+    }
+}
 
 export function getProfile() {
     if (!user) {
@@ -16,72 +24,39 @@ export function getProfile() {
         return;
     }
 
-    if (header) {
-        if (user.campus && user.campus !== null) {
-            const campusName = user.campus.charAt(0).toUpperCase() + user.campus.slice(1);
-            header.innerText = `Zone01 ${campusName} Dashboard`;
-        } 
+    // Header
+    if (user.campus) {
+        const campusName = user.campus.charAt(0).toUpperCase() + user.campus.slice(1);
+        setText(elements.header, `Zone01 ${campusName} Dashboard`);
     }
 
-    if (welcome) {
-        if (user.firstName) {
-            welcome.innerText = `Welcome ${user.firstName}`;
-        } 
+    // Welcome
+    setText(elements.welcome, user.firstName ? `Welcome ${user.firstName}` : '');
+
+    // Name
+    const fullName = [user.firstName, user.lastName].filter(Boolean).join(' ');
+    setText(elements.name, fullName);
+
+    // Email
+    setText(elements.email, user.email);
+
+    // Phone, Country, Emergency, Gender
+    if (user.attrs) {
+        setText(elements.phone, user.attrs.phone);
+        setText(elements.country, user.attrs.country);
+        setText(elements.emagency, user.attrs.emergencyTel);
+        setText(elements.gender, user.attrs.gender);
     }
 
-    if (name) {
-        if (user.firstName) {
-            name.innerText = user.firstName;
-        } 
-
-        if (user.lastName) {
-            name.innerText += ` ${user.lastName}`;
-        }
-    }
-
-    if (email) {
-        if (user.email) {
-            email.innerText = user.email;
-        } 
-    }
-
-    if (phone) {
-        if (user.attrs && user.attrs.phone) {
-            phone.innerText = user.attrs.phone;
-        }
-    }
-
-    if (country) {
-        if (user.attrs && user.attrs.country) {
-            country.innerText = user.attrs.country;
-        }
-    }
-
-    if (emagency) {
-        if (user.attrs && user.attrs.emergencyTel) {
-            emagency.innerText = user.attrs.emergencyTel;
-        }
-    }
-
-        if (gender) {
-        if (user.attrs && user.attrs.gender) {
-            gender.innerText = user.attrs.gender;
-        }
-    }
-
-    if (role) {
-        let level = user.level
-        console.log("Level: ", level);
-        let currentRank = user.events.ranksDefinitions;
-        let rank = currentRank
-            .filter(rank => rank.level <= level)
+    // Role
+    if (elements.role && user.level && user.events && Array.isArray(user.events.ranksDefinitions)) {
+        const level = user.level;
+        const ranks = user.events.ranksDefinitions;
+        const rank = ranks
+            .filter(r => r.level <= level)
             .sort((a, b) => b.level - a.level)[0];
-
-        if (rank) {
-            role.innerText = rank.name;
-        }
+        setText(elements.role, rank ? rank.name : '');
     }
-
 }
 
 
