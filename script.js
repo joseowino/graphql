@@ -12,7 +12,7 @@ if (token && isAuthenticated()) {
   } else {
     getProfile(user);
     getStats(user);
-    drowGraph();
+    drowGraph(user);
     const loading = document.getElementById('loading');
     if (loading) {
       loading.style.display = 'none';
