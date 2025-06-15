@@ -7,7 +7,6 @@ const elements = {
     country: document.getElementById('country'),
     emagency: document.getElementById('emagency'),
     gender: document.getElementById('gender'),
-    role: document.getElementById('role'),
 };
 
 function setText(element, text) {
@@ -46,15 +45,6 @@ export function getProfile(user) {
         setText(elements.gender, user.attrs.gender);
     }
 
-    // Role
-    if (elements.role && user.level && user.events && Array.isArray(user.events.ranksDefinitions)) {
-        const level = user.level;
-        const ranks = user.events.ranksDefinitions;
-        const rank = ranks
-            .filter(r => r.level <= level)
-            .sort((a, b) => b.level - a.level)[0];
-        setText(elements.role, rank ? rank.name : '');
-    }
 }
 
 
