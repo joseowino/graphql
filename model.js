@@ -2,7 +2,6 @@ import { schema } from "./query.js";
 
 const fetchData = async () => {
   if (window.location.href !== 'http://127.0.0.1:5500/index.html') {
-    console.log("Loaded window: ", window.location.href)
     return;
   }
 
@@ -10,7 +9,6 @@ const fetchData = async () => {
     const result = await schema();
 
     const { data } = result || { data: {} };
-    console.log("Result:", result.data.user[0].login);
 
     if (!data) {
       console.error("No data returned from schema query.");
@@ -39,7 +37,8 @@ const fetchData = async () => {
       downTransactions: result.data.user[0].downTransactions ?? [],
       xpTimeline: result.data.user[0].xpTimeline ?? [],
       skillTypes: result.data.user[0].skillTypes?.nodes ?? [],
-      events: result.data.user[0].events ?? [],
+      level: result.data.user[0].events[0].level ?? 0,
+      events: result.data.event[0].object.attrs ?? {},
     };
   } catch (error) {
     console.error("Error in fetchData:", error);
@@ -60,7 +59,8 @@ const fetchData = async () => {
       downTransactions: [],
       xpTimeline: [],
       skillTypes: [],
-      events: [],
+      level: 0,
+      events: {},
     };
   }
 };
