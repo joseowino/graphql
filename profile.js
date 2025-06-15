@@ -8,6 +8,7 @@ const phone = document.getElementById('phone');
 const country = document.getElementById('country');
 const emagency = document.getElementById('emagency');
 const gender = document.getElementById('gender')
+const role = document.getElementById('role');
 
 export function getProfile() {
     if (!user) {
@@ -68,18 +69,18 @@ export function getProfile() {
         }
     }
 
-    let level = user.level
-    console.log("Level: ", level);
-    let currentRank = user.events.ranksDefinitions;
-    let rank = currentRank
-        .filter(rank => rank.level <= level)
-        .sort((a, b) => b.level - a.level)[0];
-    console.log("Current Rang: ", rank)
+    if (role) {
+        let level = user.level
+        console.log("Level: ", level);
+        let currentRank = user.events.ranksDefinitions;
+        let rank = currentRank
+            .filter(rank => rank.level <= level)
+            .sort((a, b) => b.level - a.level)[0];
 
-
-    // let nextRank = currentRank
-    //     .filter(rank => rank.level > level)
-    //     .sort((a, b) => a.level - b.level)[0];
+        if (rank) {
+            role.innerText = rank.name;
+        }
+    }
 
 }
 
