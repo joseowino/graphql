@@ -17,7 +17,7 @@ export function getStats(user) {
     const userLevel = user.level;
     setText(level, userLevel);
     
-        // Role
+    // Role
     if (elements.role && user.level && user.events && Array.isArray(user.events.ranksDefinitions)) {
         const ranks = user.events.ranksDefinitions;
         const rank = ranks
