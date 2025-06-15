@@ -1,5 +1,3 @@
-import { user } from './model.js';
-
 const elements = {
     header: document.getElementById('header'),
     welcome: document.getElementById('welcome'),
@@ -18,7 +16,7 @@ function setText(element, text) {
     }
 }
 
-export function getProfile() {
+export function getProfile(user) {
     if (!user) {
         console.error('Not able to fetch data.');
         return;
