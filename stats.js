@@ -5,6 +5,7 @@ const elements = {
     role: document.getElementById('role'),
     nextRank: document.getElementById('nextRank'),
     xp: document.getElementById('xp'),
+    ouditRatio: document.getElementById('auditRatio'),
 };
 
 function setText(element, text) {
@@ -18,7 +19,7 @@ export function getStats(user) {
     const userLevel = user.level;
     setText(level, userLevel);
     
-    // Role
+    // Ranks
     if (elements.role && user.level && user.events && Array.isArray(user.events.ranksDefinitions)) {
         const ranks = user.events.ranksDefinitions;
         const rank = ranks
@@ -38,6 +39,14 @@ export function getStats(user) {
             return transaction.type === "xp" ? totalXPs + transaction.amount : totalXPs;
         }, 0);
         setText(elements.xp, totalXPs.toLocaleString());
+    }
+
+    // Oudit Ratio
+    if (elements.ouditRatio && user.upTransactions && user.downTransactions) {
+        const upCount = user.upTransactions.reduce((count, transaction) => count + transaction.amount, 0);
+        const downCount = user.downTransactions.reduce((count, transaction) => count + transaction.amount, 0);
+        const ratio = downCount > 0 ? (upCount / downCount).toFixed(2) : '∞';
+        setText(elements.ouditRatio, ratio);
     }
 
 
