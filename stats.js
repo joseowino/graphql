@@ -34,8 +34,10 @@ export function getStats(user) {
 
     // XP
     if (elements.xp && user.totalXP && Array.isArray(user.totalXP)) {
-        const totalXP = user.totalXP.reduce((acc, transaction) => acc + transaction.amount, 0);
-        setText(elements.xp, (totalXP).toLocaleString());
+        const totalXPs = user.totalXP.reduce((totalXPs, transaction) => {
+            return transaction.type === "xp" ? totalXPs + transaction.amount : totalXPs;
+        }, 0);
+        setText(elements.xp, totalXPs.toLocaleString());
     }
 
 
