@@ -70,11 +70,11 @@ export function getProfile() {
 
     let level = user.level
     console.log("Level: ", level);
-    // let currentRank = user.events.ranksDefinitions;
-    // let rank = currentRank
-    //     .filter(rank => rank.level <= level)
-    //     .sort((a, b) => b.level - a.level)[0];
-    // console.log("Current Rang: ", rank)
+    let currentRank = user.events.ranksDefinitions;
+    let rank = currentRank
+        .filter(rank => rank.level <= level)
+        .sort((a, b) => b.level - a.level)[0];
+    console.log("Current Rang: ", rank)
 
 
     // let nextRank = currentRank
