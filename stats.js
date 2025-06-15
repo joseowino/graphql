@@ -1,4 +1,4 @@
-const level = document.getElementById('level');
+import { setText } from "./calc.js";
 
 const elements = {
     level: document.getElementById('level'),
@@ -7,12 +7,6 @@ const elements = {
     xp: document.getElementById('xp'),
     ouditRatio: document.getElementById('auditRatio'),
 };
-
-function setText(element, text) {
-    if (element && text) {
-        element.innerText = text;
-    }
-}
 
 export function getStats(user) {
     // level
