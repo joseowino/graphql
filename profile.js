@@ -1,3 +1,5 @@
+import { setText } from "./calc.js";
+
 const elements = {
     header: document.getElementById('header'),
     welcome: document.getElementById('welcome'),
@@ -8,12 +10,6 @@ const elements = {
     emagency: document.getElementById('emagency'),
     gender: document.getElementById('gender'),
 };
-
-function setText(element, text) {
-    if (element && text) {
-        element.innerText = text;
-    }
-}
 
 export function getProfile(user) {
     if (!user) {
