@@ -1,6 +1,7 @@
 import { isAuthenticated, TOKEN_KEY } from './login.js';
 import { getProfile } from './profile.js';
 import { user } from './model.js';
+import { getStats } from './stats.js';
 
 const token = localStorage.getItem(TOKEN_KEY);
 
@@ -9,6 +10,7 @@ if (token && isAuthenticated()) {
     console.error('User data is not available.');
   } else {
     getProfile(user);
+    getStats(user);
     const loading = document.getElementById('loading');
     if (loading) {
       loading.style.display = 'none';
