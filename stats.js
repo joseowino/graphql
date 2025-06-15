@@ -49,7 +49,6 @@ export function getStats(user) {
         setText(elements.ouditRatio, ratio);
     }
 
-
 }
 
 
