@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profile</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -33,8 +34,13 @@
       <p><strong>XP: </strong> <span id="xp"></span></p>
       <p><strong>Audit Ratio: </strong> <span id="auditRatio"></span></p>
 
-      <div id="xpGraph"></div>
-      <div id="auditGraph"></div>
+      <h2>Graphs</h2>
+      <div id="xpGraph">
+        <canvas id="xpTimeChart"></canvas>
+      </div>
+      <div id="auditGraph">
+        <canvas id="skillsChart"></canvas>
+      </div>
     </section>
   </div>
 
