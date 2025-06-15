@@ -4,6 +4,7 @@ const elements = {
     level: document.getElementById('level'),
     role: document.getElementById('role'),
     nextRank: document.getElementById('nextRank'),
+    xp: document.getElementById('xp'),
 };
 
 function setText(element, text) {
@@ -29,6 +30,12 @@ export function getStats(user) {
             .filter(r => r.level > userLevel)
             .sort((a, b) => a.level - b.level)[0];
         setText(elements.nextRank, nextRank ? nextRank.name : '');
+    }
+
+    // XP
+    if (elements.xp && user.totalXP && Array.isArray(user.totalXP)) {
+        const totalXP = user.totalXP.reduce((acc, transaction) => acc + transaction.amount, 0);
+        setText(elements.xp, (totalXP).toLocaleString());
     }
 
 
