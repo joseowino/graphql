@@ -1,4 +1,4 @@
-import { setText } from "./calc.js";
+import { setText, getRanks } from "./calc.js";
 
 const elements = {
     level: document.getElementById('level'),
@@ -15,16 +15,9 @@ export function getStats(user) {
     
     // Ranks
     if (elements.role && user.level && user.events && Array.isArray(user.events.ranksDefinitions)) {
-        const ranks = user.events.ranksDefinitions;
-        const rank = ranks
-            .filter(r => r.level <= userLevel)
-            .sort((a, b) => b.level - a.level)[0];
-        setText(elements.role, rank ? rank.name : '');
-
-        const nextRank = ranks
-            .filter(r => r.level > userLevel)
-            .sort((a, b) => a.level - b.level)[0];
-        setText(elements.nextRank, nextRank ? nextRank.name : '');
+        const { currentRank, nextRank } = getRanks(user);
+        setText(elements.role, currentRank ? currentRank.name : 'No Rank');
+        setText(elements.nextRank, nextRank ? nextRank.name : 'No Next Rank');
     }
 
     // XP
