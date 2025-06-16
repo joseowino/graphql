@@ -21,4 +21,9 @@ export function getRanks(user) {
     return { currentRank, nextRank };
 }
 
-
+export function xpTimeline(user) {
+    return user.xpTimeline.map(entry => ({
+        date: new Date(entry.createdAt).toLocaleDateString(),
+        amount: entry.amount
+    })) || [];
+}
