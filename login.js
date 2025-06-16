@@ -5,13 +5,9 @@ export const TOKEN_KEY = 'zone01_token';
 const loginForm = document.getElementById('loginForm');
 if (loginForm) {
   loginForm.addEventListener('submit', handleLoginSubmit);
-  const loading = document.getElementById('loading');
-  if (loading) {
-    loading.innerText = 'Getting ready...';
-  }
 }
 
-export async function login(id, password) {
+async function login(id, password) {
   try {
     const basicAuth = btoa(`${id}:${password}`);
     const res = await fetch(API_SIGNIN, {
@@ -57,6 +53,7 @@ export async function login(id, password) {
     console.error('Login error:', error);
     throw error;
   }
+
 }
 
 export async function handleLoginSubmit(e) {
