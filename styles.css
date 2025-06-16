@@ -1,47 +1,129 @@
+/* General Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f7f7f7;
-  }
-  
-  header {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  #login-container, #app {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  form input, form button {
-    display: block;
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    font-size: 1rem;
-  }
-  
-  form button {
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  form button:hover {
-    background-color: #555;
-  }
-  
-  .error {
-    color: red;
-  }
-  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+#app {
+  max-width: 1000px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e1e4e8;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 1.8em;
+  color: #2c3e50;
+}
+
+#logoutBtn {
+  padding: 10px 15px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+#logoutBtn:hover {
+  background-color: #c0392b;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+h2 {
+  margin-bottom: 10px;
+  color: #2980b9;
+  font-size: 1.4em;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 5px;
+}
+
+p {
+  margin: 6px 0;
+}
+
+strong {
+  color: #2c3e50;
+}
+
+/* SVG Graph Styling */
+.graph, #radarChart {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fafafa;
+  margin-top: 15px;
+}
+
+/* Line Graph */
+.axis {
+  stroke: #ccc;
+  stroke-width: 1;
+}
+
+.line {
+  fill: none;
+  stroke: #3498db;
+  stroke-width: 2.5;
+}
+
+.point {
+  fill: #e67e22;
+  stroke: #fff;
+  stroke-width: 1;
+}
+
+/* Radar Chart */
+.web {
+  fill: none;
+  stroke: #bdc3c7;
+  stroke-width: 0.5;
+}
+
+.shape {
+  fill: rgba(52, 152, 219, 0.3);
+  stroke: #2980b9;
+  stroke-width: 2;
+}
+
+.label {
+  font-size: 0.75rem;
+  fill: #34495e;
+  text-anchor: middle;
+}
+
+/* Loading and Welcome Messages */
+#loading {
+  color: #999;
+  font-style: italic;
+}
+
+#welcome {
+  color: #27ae60;
+  font-weight: bold;
+}
