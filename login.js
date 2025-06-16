@@ -5,6 +5,10 @@ export const TOKEN_KEY = 'zone01_token';
 const loginForm = document.getElementById('loginForm');
 if (loginForm) {
   loginForm.addEventListener('submit', handleLoginSubmit);
+  const loading = document.getElementById('loading');
+  if (loading) {
+    loading.innerText = 'Getting ready...';
+  }
 }
 
 export async function login(id, password) {
