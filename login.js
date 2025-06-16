@@ -57,6 +57,10 @@ async function login(id, password) {
 }
 
 export async function handleLoginSubmit(e) {
+  const loading = document.getElementById('loading');
+  if (loading) {
+    loading.innerText = 'Getting ready...';
+  }
   e.preventDefault();
 
   const id = document.getElementById('id').value;
