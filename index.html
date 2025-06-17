@@ -1,48 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Profile</title>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zone01 Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <div id="app">
-    <header>
-      <h1 id="header">Zone01 Dashboard</h1>
-      <p id = "loading">Losding Data...</p>
-      <p id="welcome">Welcome back</p>
-      <button id="logoutBtn">Logout</button>
-    </header>
-    <section id="profile">
-      <h2>Profile Info</h2>
-      <p><strong>Name: </strong> <span id="name"></span></p>
-      <p><strong>Email:</strong> <span id="email"></span></p>
-      <p><strong>Phone#: </strong> <span id="phone"></span></p>
-      <p><strong>Emagengy Contantact: </strong> <span id="emagency"></span></p>
-      <p><strong>Rank:</strong> <span id="role"></span></p>
-      <p><strong>Next Rank: </strong> <span id="nextRank"></span></p>
-      <p><strong>country:</strong> <span id="country"></span></p>
-      <p><strong>Gender:</strong> <span id="gender"></span></p>
-    </section>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p id="loading">Loading your dashboard...</p>
+        </div>
+    </div>
 
-    <section id="stats">
-      <h2>Statistics</h2>
-      <p><strong>Level: </strong> <span id="level"></span></p>
-      <p><strong>XP: </strong> <span id="xp"></span></p>
-      <p><strong>Audit Ratio: </strong> <span id="auditRatio"></span></p>
+    <div id="app">
+        <header>
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 id="header">Zone01 Dashboard</h1>
+                    <p class="welcome-text" id="welcome">Welcome back</p>
+                </div>
+                <div class="header-right">
+                    <button class="logout-btn" id="logoutBtn">Logout</button>
+                </div>
+            </div>
+        </header>
 
-      <h2>Graphs</h2>
-      <div id="xpGraph">
-          <svg id="lineGraph" class="graph" width="500" height="300" viewBox="0 0 500 300"></svg>
-      </div>
-      <div id="auditGraph">
-          <svg id="radarChart" width="500" height="500"></svg>      </div>
-    </section>
-  </div>
+        <main>
+            <div class="dashboard-grid">
+                <section id="profile" class="card fade-in">
+                    <div class="card-header">
+                        <div class="card-icon profile-icon">👤</div>
+                        <h2 class="card-title">Profile Information</h2>
+                    </div>
+                    
+                    <div class="profile-grid">
+                        <div class="profile-item">
+                            <span class="profile-label">Full Name</span>
+                            <span class="profile-value" id="name">Loading...</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Email</span>
+                            <span class="profile-value" id="email">Loading...</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Phone</span>
+                            <span class="profile-value" id="phone">Loading...</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Emergency Contact</span>
+                            <span class="profile-value" id="emagency">Loading...</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Country</span>
+                            <span class="profile-value" id="country">Loading...</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Gender</span>
+                            <span class="profile-value" id="gender">Loading...</span>
+                        </div>
+                    </div>
 
-  <script type="module" src="script.js"></script>
+                    <div class="level-indicator">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span class="profile-label">Current Rank</span>
+                            <span class="rank-badge" id="role">Loading...</span>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <span class="profile-label">Next Rank</span>
+                            <span class="profile-value" id="nextRank">Loading...</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="stats" class="card slide-up">
+                    <div class="card-header">
+                        <div class="card-icon stats-icon">📊</div>
+                        <h2 class="card-title">Statistics</h2>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="level">0</div>
+                            <div class="stat-label">Level</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="xp">0</div>
+                            <div class="stat-label">Total XP</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="auditRatio">0</div>
+                            <div class="stat-label">Audit Ratio</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="projects">0</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="charts-section">
+                <div class="chart-card fade-in" id="xpGraph">
+                    <h3 class="chart-title">XP Progress Over Time</h3>
+                    <svg id="lineGraph" class="graph" viewBox="0 0 500 300"></svg>
+                </div>
+
+                <div class="chart-card slide-up" id="auditGraph">
+                    <h3 class="chart-title">Skills Radar</h3>
+                    <svg id="radarChart" viewBox="0 0 500 500"></svg>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
 </body>
 </html>
