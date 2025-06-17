@@ -132,17 +132,3 @@ function drawSkillsChart(data) {
   shape.setAttribute("class", "shape");
   svg.appendChild(shape);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
