@@ -101,17 +101,27 @@
                 </section>
             </div>
 
-            <div class="charts-section">
+                <div class="charts-section">
                 <div class="chart-card fade-in" id="xpGraph">
+                    <div class="chart-header">
                     <h3 class="chart-title">XP Progress Over Time</h3>
-                    <svg id="lineGraph" class="graph" viewBox="0 0 500 300"></svg>
+                    <div class="chart-legend">
+                        <span class="legend-item"><span class="legend-color" style="background: #6366f1;"></span> Cumulative XP</span>
+                    </div>
+                    </div>
+                    <div id="lineGraph" class="graph-container"></div>
                 </div>
 
                 <div class="chart-card slide-up" id="auditGraph">
+                    <div class="chart-header">
                     <h3 class="chart-title">Skills Radar</h3>
-                    <svg id="radarChart" viewBox="0 0 500 500"></svg>
+                    <div class="chart-legend">
+                        <span class="legend-item"><span class="legend-color" style="background: rgba(99, 102, 241, 0.2);"></span> Skills Distribution</span>
+                    </div>
+                    </div>
+                    <div id="radarChart" class="graph-container"></div>
                 </div>
-            </div>
+                </div>
         </main>
     </div>
 
