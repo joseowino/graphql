@@ -2,7 +2,7 @@ import { isAuthenticated, TOKEN_KEY } from './login.js';
 import { getProfile } from './profile.js';
 import { user } from './model.js';
 import { getStats } from './stats.js';
-import { drowGraph} from './graph.js';
+import { drawGraphs } from './graph.js';
 
 const token = localStorage.getItem(TOKEN_KEY);
 
@@ -12,7 +12,7 @@ if (token && isAuthenticated()) {
   } else {
     getProfile(user);
     getStats(user);
-    drowGraph(user);
+    drawGraphs(user);
     const loading = document.getElementById('loading');
     if (loading) {
       loading.style.display = 'none';
