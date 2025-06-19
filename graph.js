@@ -242,7 +242,6 @@ function drawSkillsRadarChart(user) {
     .attr('text-anchor', 'middle')
     .style('font-size', '16px')
     .style('font-weight', 'bold')
-    .text('Skills Distribution');
 
   // Tooltip
   const tooltip = d3.select('body').append('div')
