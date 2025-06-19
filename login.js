@@ -19,6 +19,11 @@ async function login(id, password) {
     });
 
     if (!res.ok) {
+      const errorElement = document.getElementById('error');
+      if (errorElement) {
+        errorElement.style.display = 'block';
+        errorElement.textContent = 'Invalid credentials';
+      }
       throw new Error('Invalid credentials');
     }
 
