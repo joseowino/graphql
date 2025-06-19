@@ -25,6 +25,12 @@ export function getStats(user) {
         const totalXPs = user.totalXP.reduce((totalXPs, transaction) => {
             return transaction.type === "xp" ? totalXPs + transaction.amount : totalXPs;
         }, 0);
+
+        let xp = totalXPs;
+        if (xp >= 1024) {
+            xp = (xp / 1024).toFixed(2) + 'K';
+        }
+
         setText(elements.xp, totalXPs.toLocaleString());
     }
 
