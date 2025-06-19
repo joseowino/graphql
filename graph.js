@@ -140,14 +140,14 @@ function drawSkillsRadarChart(user) {
   const skillsData = user.skillTypes
     .filter(skill => skill.amount > 0)
     .map(skill => ({
-      axis: skill.type,
+      axis: skill.type.replace('skill_', ''),
       value: skill.amount / 1000 // Normalize values
     }));
 
-  if (skillsData.length < 3) {
-    console.warn('Not enough skills data for radar chart');
-    return;
-  }
+  // if (skillsData.length < 3) {
+  //   console.warn('Not enough skills data for radar chart');
+  //   return;
+  // }
 
   // Radar chart configuration
   const maxValue = d3.max(skillsData, d => d.value) * 1.1;
