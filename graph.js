@@ -20,12 +20,15 @@ function drawXpTimeChart(user) {
   const height = 300 - margin.top - margin.bottom;
 
   // Parse dates and sort data
+  const now = new Date();
+  const cutoff = new Date(now.getFullYear(), now.getMonth() - 18, now.getDate());
   const data = user.xpTimeline
     .map(d => ({
       date: new Date(d.createdAt),
       amount: d.amount,
       cumulative: 0
     }))
+    .filter(d => d.date >= cutoff)
     .sort((a, b) => a.date - b.date);
 
   // Calculate cumulative XP
