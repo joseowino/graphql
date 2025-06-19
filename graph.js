@@ -166,14 +166,7 @@ function drawSkillsRadarChart(user) {
       .attr('r', levelFactor)
       .style('fill', 'none')
       .style('stroke', 'rgba(100, 100, 100, 0.2)')
-      .style('stroke-width', '1px');
-
-    // Add labels for levels
-    svg.append('text')
-      .attr('class', 'level-label')
-      .attr('x', 5)
-      .attr('y', -levelFactor + 5)
-      .text(d3.format('.1f')(maxValue * level / levels));
+      .style('stroke-width', '1px');  
   }
 
   // Draw axes
