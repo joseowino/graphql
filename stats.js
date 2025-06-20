@@ -6,6 +6,7 @@ const elements = {
     nextRank: document.getElementById('nextRank'),
     xp: document.getElementById('xp'),
     ouditRatio: document.getElementById('auditRatio'),
+    grades : document.getElementById('grades'),
 };
 
 export function getStats(user) {
@@ -48,6 +49,10 @@ export function getStats(user) {
         const ratio = downCount > 0 ? (upCount / downCount).toFixed(2) : '∞';
         setText(elements.ouditRatio, ratio);
     }
+
+    // Grades
+    console.log(user);
+
 
 }
 
