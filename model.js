@@ -10,6 +10,8 @@ const fetchData = async () => {
 
     const { data } = result || { data: {} };
 
+    console.log("Fetched data:");
+
     if (!data) {
       console.error("No data returned from schema query.");
       return { id: null, login: "Guest" };
