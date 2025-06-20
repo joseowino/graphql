@@ -27,12 +27,19 @@ export function getStats(user) {
         }, 0);
 
         let xp = totalXPs;
-        if (xp >= 1024) {
+        if (xp >= 1000000000) {
+            xp = (xp / 1024 / 1024 / 1024).toFixed(2) + 'G';
+        } else if (xp >= 1000000) {
+            xp = (xp / 1024 / 1024).toFixed(2) + 'M';
+        } else if (xp >= 1000) {
             xp = (xp / 1024).toFixed(2) + 'K';
+        } else {
+            xp = xp.toFixed(2);
         }
 
-        setText(elements.xp, totalXPs.toLocaleString());
+        setText(elements.xp, xp);
     }
+
 
     // Oudit Ratio
     if (elements.ouditRatio && user.upTransactions && user.downTransactions) {
