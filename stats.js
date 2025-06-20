@@ -50,8 +50,7 @@ export function getStats(user) {
         setText(elements.ouditRatio, ratio);
     }
 
-    // Grades
-    console.log(user);
+    // Grades: use avarage of progress
 
 
 }
