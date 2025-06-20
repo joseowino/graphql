@@ -357,7 +357,6 @@ main {
 }
 
 .axis {
-    stroke: var(--border-color);
     stroke-width: 2;
 }
 
