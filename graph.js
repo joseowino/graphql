@@ -122,7 +122,7 @@ function drawSkillsRadarChart(user) {
   const container = d3.select('#radarChart');
   container.selectAll('*').remove();
 
-  const margin = {top: 60, right: 60, bottom: 60, left: 60};
+  const margin = {top: 0, right: 60, bottom: 100, left: 60};
   const width = 500 - margin.left - margin.right;
   const height = 500 - margin.top - margin.bottom;
   const radius = Math.min(width, height) / 2;
