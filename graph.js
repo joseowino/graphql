@@ -66,10 +66,10 @@ function drawXpTimeChart(user) {
     .attr('d', line);
 
   // Add the scatter plot points
-  svg.selectAll('.dot')
+  svg.selectAll('.line-dot')
     .data(data)
     .enter().append('circle')
-      .attr('class', 'dot')
+      .attr('class', 'line-dot')
       .attr('cx', d => x(d.date))
       .attr('cy', d => y(d.cumulative))
       .attr('r', 4)
@@ -91,7 +91,7 @@ function drawXpTimeChart(user) {
   // Add the X Axis
   svg.append('g')
     .attr('transform', `translate(0,${height})`)
-    .call(d3.axisBottom(x).tickFormat(d3.timeFormat('%b %d')));
+    .call(d3.axisBottom(x).tickFormat(d3.timeFormat('%b')));
 
   // Add the Y Axis
   svg.append('g')
