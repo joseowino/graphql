@@ -11,8 +11,8 @@ function drawXpTimeChart(user) {
   container.selectAll('*').remove();
 
   const margin = {top: 30, right: 30, bottom: 50, left: 60};
-  const width = 500 - margin.left - margin.right;
-  const height = 300 - margin.top - margin.bottom;
+  const width = 600 - margin.left - margin.right;
+  const height = 400 - margin.top - margin.bottom;
 
   // Parse dates and sort data
   const now = new Date();
