@@ -187,12 +187,22 @@ function drawSkillsRadarChart(user) {
   axis.append('text')
     .attr('class', 'legend')
     .style('font-size', '11px')
-    .style('fill', '#333') // Added darker text color
+    .style('fill', '#333')
     .attr('text-anchor', 'middle')
     .attr('dy', '0.35em')
     .attr('x', (d, i) => rScale(maxValue * 1.1) * Math.cos(angleSlice * i - Math.PI / 2))
     .attr('y', (d, i) => rScale(maxValue * 1.1) * Math.sin(angleSlice * i - Math.PI / 2))
     .text(d => d.axis);
+
+  axis.append('text')
+    .attr('class', 'legend-value')
+    .style('font-size', '10px')
+    .style('fill', '#666')
+    .attr('text-anchor', 'middle')
+    .attr('dy', '1.5em')
+    .attr('x', (d, i) => rScale(maxValue * 1.1) * Math.cos(angleSlice * i - Math.PI / 2))
+    .attr('y', (d, i) => rScale(maxValue * 1.1) * Math.sin(angleSlice * i - Math.PI / 2))
+    .text(d => `(${d.value.toFixed(1)}k)`);
 
   // Create the radar chart area
   const radarLine = d3.lineRadial()
