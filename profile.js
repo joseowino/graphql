@@ -9,6 +9,7 @@ const elements = {
     country: document.getElementById('country'),
     emagency: document.getElementById('emagency'),
     gender: document.getElementById('gender'),
+    login: document.getElementById('login'),
 };
 
 export function getProfile(user) {
@@ -29,6 +30,9 @@ export function getProfile(user) {
     // Name
     const fullName = [user.firstName, user.lastName].filter(Boolean).join(' ');
     setText(elements.name, fullName);
+
+    // Login
+    setText(elements.login, "@" + user.login || 'Guest');
 
     // Email
     setText(elements.email, user.email);
