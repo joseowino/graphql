@@ -2,11 +2,6 @@ import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7/+esm';
 // import { xpTimeline } from './calc.js';
 
 export function drawGraphs(user) {
-  if (!user) {
-    console.error('No user data available');
-    return;
-  }
-
   drawXpTimeChart(user);
   drawSkillsRadarChart(user);
 }
