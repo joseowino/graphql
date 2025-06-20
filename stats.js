@@ -16,7 +16,7 @@ export function getStats(user) {
     // Ranks
     if (elements.role && user.level && user.events && Array.isArray(user.events.ranksDefinitions)) {
         const { currentRank, nextRank } = getRanks(user);
-        setText(elements.role, currentRank ? currentRank.name : 'No Rank');
+        setText(elements.role, currentRank ? '🏆 ' + currentRank.name : 'No Rank');
         setText(elements.nextRank, nextRank ? nextRank.name : 'No Next Rank');
     }
 
