@@ -187,6 +187,7 @@ function drawSkillsRadarChart(user) {
   axis.append('text')
     .attr('class', 'legend')
     .style('font-size', '11px')
+    .style('fill', '#333') // Added darker text color
     .attr('text-anchor', 'middle')
     .attr('dy', '0.35em')
     .attr('x', (d, i) => rScale(maxValue * 1.1) * Math.cos(angleSlice * i - Math.PI / 2))
