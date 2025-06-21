@@ -10,8 +10,6 @@ const fetchData = async () => {
 
     const { data } = result || { data: {} };
 
-    console.log("Fetched data:");
-
     if (!data) {
       console.error("No data returned from schema query.");
       return { id: null, login: "Guest" };
@@ -41,6 +39,7 @@ const fetchData = async () => {
       skillTypes: result.data.user[0].skillTypes?.nodes ?? [],
       level: result.data.user[0].events[0].level ?? 0,
       events: result.data.event[0].object.attrs ?? {},
+      grade: result.data.user[0].progresses[0].grade ?? "N/A",
     };
   } catch (error) {
     console.error("Error in fetchData:", error);
@@ -63,6 +62,7 @@ const fetchData = async () => {
       skillTypes: [],
       level: 0,
       events: {},
+      grade: "N/A"
     };
   }
 };
