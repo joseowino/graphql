@@ -314,6 +314,7 @@ main {
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border-color);
     position: relative;
+    width: 670px;
 }
 
 .chart-card::before {
