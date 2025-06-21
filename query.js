@@ -19,6 +19,9 @@ const query = `
       lastName
       email
       attrs
+      progresses {
+        grade
+      }
       results(order_by: { grade: desc }, limit: 5) {
         object {
           name
