@@ -3,6 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 :root {
     --primary-color: #6366f1;
