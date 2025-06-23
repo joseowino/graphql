@@ -1,9 +1,8 @@
 import { schema } from "./query.js";
 
-const fetchData = async () => {
-  console.log("Pathname is not '/main.html', skipping fetchData.: ", window.location.pathname);
-
-  if (window.location.pathname !== '/main.html') {
+const fetchData = async () => {  
+  const expectedPath = `${location.origin}/main.html`;
+  if (location.href !== expectedPath) {
     return;
   }
   
