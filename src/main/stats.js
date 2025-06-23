@@ -50,7 +50,9 @@ export function getStats(user) {
         setText(elements.ouditRatio, ratio);
     }
 
-    setText(elements.grades, user.grade.toFixed(2))
+    //setText(elements.grades, user.grade.toFixed(2))
+
+    console.log('Grade: ', user.grade);
 
 }
 
