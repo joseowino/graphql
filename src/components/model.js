@@ -1,10 +1,10 @@
 import { schema } from "./query.js";
 
 const fetchData = async () => {
-  if (window.location.href !== 'http://127.0.0.1:5500/main.html') {
+  if (window.location.pathname !== '/main.html') {
     return;
   }
-
+  
   try {
     const result = await schema();
 
