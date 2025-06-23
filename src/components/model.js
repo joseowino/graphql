@@ -2,6 +2,7 @@ import { schema } from "./query.js";
 
 const fetchData = async () => {
   if (window.location.pathname !== '/main.html') {
+    console.log("Pathname is not '/main.html', skipping fetchData.: ", window.location.pathname);
     return;
   }
   
