@@ -26,6 +26,6 @@ const logout = document.getElementById('logoutBtn');
 if (logout) {
   logout.addEventListener('click', () => {
     localStorage.removeItem(TOKEN_KEY);
-    window.location.href = 'login.html';
+    window.location.href = 'index.html';
   });
 }
