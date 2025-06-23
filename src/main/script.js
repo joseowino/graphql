@@ -5,8 +5,6 @@ import { getStats } from './stats.js';
 import { drawGraphs } from './graph.js';
 
 const token = localStorage.getItem(TOKEN_KEY);
-  const expectedPath = `${location.origin}/main.html`;
-  console.log("Window: ", expectedPath)
 
 if (token && isAuthenticated()) {
   if (!user) {
