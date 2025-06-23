@@ -135,12 +135,10 @@ function getAuthToken() {
 }
 
 export async function schema() {
-  const expectedPath = `${location.origin}/main.html`;
-  if (location.href !== expectedPath) {
-    console.log("Window: ", expectedPath)
+  if (!window.location.href.endsWith('/main.html')) {
     return;
   }
-
+  
   try {
     const token = getAuthToken();
     
