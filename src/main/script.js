@@ -4,6 +4,8 @@ import { user } from '../components/model.js';
 import { getStats } from './stats.js';
 import { drawGraphs } from './graph.js';
 
+console.log('Script loaded successfully');
+
 const token = localStorage.getItem(TOKEN_KEY);
 
 if (token && isAuthenticated()) {
