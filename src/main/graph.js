@@ -138,7 +138,7 @@ function drawSkillsRadarChart(user) {
     .filter(skill => skill.amount > 0)
     .map(skill => ({
       axis: skill.type.replace('skill_', ''),
-      value: skill.amount / 1000 // Normalize values
+      value: skill.amount // Normalize values
     }));
 
   // Radar chart configuration
@@ -223,7 +223,7 @@ function drawSkillsRadarChart(user) {
     .on('mouseover', function(event, d) {
       d3.select(this).attr('r', 6);
       tooltip.transition().duration(200).style('opacity', .9);
-      tooltip.html(`<strong>${d.axis}</strong><br/>XP: ${d.value.toFixed(1)}k`)
+      tooltip.html(`<strong>${d.axis}</strong><br/>XP: ${d.value.toFixed(2)}B`)
         .style('left', (event.pageX + 10) + 'px')
         .style('top', (event.pageY - 28) + 'px');
     })
