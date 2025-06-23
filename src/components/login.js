@@ -83,7 +83,7 @@ export async function handleLoginSubmit(e) {
     // Store token in localStorage (consistent with your current approach)
     localStorage.setItem(TOKEN_KEY, token);
     
-    window.location.href = 'index.html';
+    window.location.href = './main/index.html';
   } catch (err) {
     console.error('Login submission error:', err);
     if (errorElement) {
