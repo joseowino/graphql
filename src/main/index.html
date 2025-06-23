@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zone01 Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p id="loading">Loading your dashboard...</p>
+        </div>
+    </div>
+
+    <div id="app">
+        <header>
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 id="header">Zone01 Dashboard</h1>
+                    <p class="welcome-text" id="welcome">Welcome back</p>
+                    
+                    <p><span class="rank-badge" id="role">🏆 Loading...</span></p>
+                
+                </div>
+                <div class="header-right">
+                    <span class="login" id="login">Loading...</span>
+                    <button class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout </button>
+                </div>
+                
+            </div>
+        </header>
+
+        <main>
+            <div class="dashboard-grid">
+                <section id="profile" class="card fade-in">
+                    <div class="card-header">
+                        <div class="card-icon profile-icon">👤</div>
+                        <h2 class="card-title">Profile Information</h2>
+                    </div>
+                    
+                    <div class="profile-grid">
+                        <div class="profile-item">
+                            <span class="profile-label">Full Name</span>
+                            <span class="profile-value" id="name">Loading...</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Email</span>
+                            <span class="profile-value" id="email">Loading...</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Phone</span>
+                            <span class="profile-value" id="phone">Loading...</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Emergency Contact</span>
+                            <span class="profile-value" id="emagency">Loading...</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Country</span>
+                            <span class="profile-value" id="country">Loading...</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Gender</span>
+                            <span class="profile-value" id="gender">Loading...</span>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section id="stats" class="card slide-up">
+                    <div class="card-header">
+                        <div class="card-icon stats-icon">📊</div>
+                        <h2 class="card-title">Statistics</h2>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="level">0</div>
+                            <div class="stat-label">Level</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="xp">0</div>
+                            <div class="stat-label">Total XP</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="auditRatio">0</div>
+                            <div class="stat-label">Audit Ratio</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="grades">...</div>
+                            <div class="stat-label"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+                <div class="charts-section">
+                <div class="chart-card fade-in" id="xpGraph">
+                    <div class="chart-header">
+                    <h3 class="chart-title">XP Progress Over Time</h3>
+                    <div class="chart-legend">
+                        <span class="legend-item"><span class="legend-color" style="background: #6366f1;"></span> Cumulative XP</span>
+                    </div>
+                    </div>
+                    <div id="lineGraph" class="graph-container"></div>
+                </div>
+
+                <div class="chart-card slide-up" id="auditGraph">
+                    <div class="chart-header">
+                    <h3 class="chart-title">Skills Radar</h3>
+                    <div class="chart-legend">
+                        <span class="legend-item"><span class="legend-color" style="background: rgba(99, 102, 241, 0.2);"></span> Skills Distribution</span>
+                    </div>
+                    </div>
+                    <div id="radarChart" class="graph-container"></div>
+                </div>
+                </div>
+        </main>
+    </div>
+
+    <script type="module" src="./src/main/script.js"></script>
+</body>
+</html>
