@@ -6,6 +6,8 @@ export function drawGraphs(user) {
 }
 
 function drawXpTimeChart(user) {
+ // console.log("xp History Data:", user.xpHistory);
+
   const container = d3.select('#lineGraph');
   container.selectAll('*').remove();
 
@@ -16,7 +18,7 @@ function drawXpTimeChart(user) {
   // Parse dates and sort data
   const now = new Date();
   const cutoff = new Date(now.getFullYear(), now.getMonth() - 18, now.getDate());
-  const data = user.xpTimeline
+  const data = user.xpHistory
     .map(d => ({
       date: new Date(d.createdAt),
       amount: d.amount,
