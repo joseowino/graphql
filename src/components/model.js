@@ -38,6 +38,7 @@ const fetchData = async () => {
       downTransactions: result.data.user[0].downTransactions ?? [],
       xpTimeline: result.data.user[0].xpTimeline ?? [],
       skillTypes: result.data.user[0].skillTypes?.nodes ?? [],
+      xpHistory: result.data.user[0].xpHistory ?? [],
       level: result.data.user[0].events[0].level ?? 0,
       events: result.data.event[0].object.attrs ?? {},
       grade: result.data.user[0].progresses[0].grade ?? "N/A",
@@ -63,7 +64,8 @@ const fetchData = async () => {
       skillTypes: [],
       level: 0,
       events: {},
-      grade: "N/A"
+      grade: "N/A",
+      xpHistory: []
     };
   }
 };
